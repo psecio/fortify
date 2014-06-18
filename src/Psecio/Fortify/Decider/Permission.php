@@ -4,6 +4,12 @@ namespace Psecio\Fortify\Decider;
 
 class Permission extends \Psecio\Fortify\Decider
 {
+	/**
+	 * Evaluate the Subject's permissions
+	 *
+	 * @param \Psecio\Fortify\Subject $subject Subject instance
+	 * @return boolean Pass/fail status
+	 */
 	public function evaluate($subject)
 	{
 		$permissions = $subject->getProperty('permissions');

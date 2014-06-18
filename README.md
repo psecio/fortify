@@ -32,7 +32,7 @@ $decider = \Psecio\Fortify\Decider::create(
 	'password.htpasswd',
 	array(
 		'password' => 'foo',
-		'file' => '/var/www/test/fortify/.htpasswd'
+		'file' => file_get_contents('/var/www/test/fortify/.htpasswd')
 	)
 );
 

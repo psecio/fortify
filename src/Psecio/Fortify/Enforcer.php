@@ -12,7 +12,7 @@ abstract class Enforcer
 
 	/**
 	 * Initialize the object with the given Decider
-	 * 
+	 *
 	 * @param \Psecio\Fortify\Decider $decider Decider instance
 	 */
 	public function __construct(\Psecio\Fortify\Decider $decider)
@@ -22,7 +22,7 @@ abstract class Enforcer
 
 	/**
 	 * Set the current Decider instance
-	 * 
+	 *
 	 * @param \Psecio\Fortify\Decider $decider Decider instance
 	 * @return \Psecio\Fortify\Enforcer instance
 	 */
@@ -34,7 +34,7 @@ abstract class Enforcer
 
 	/**
 	 * Get the current Decider instance
-	 * 
+	 *
 	 * @return \Psecio\Fortify\Decider instance
 	 */
 	public function getDecider()
@@ -44,7 +44,7 @@ abstract class Enforcer
 
 	/**
 	 * Run the evaluation of the Subject with the Decider
-	 * 
+	 *
 	 * @param \Psecio\Fortify\Subject $subject Subject instance
 	 * @return boolean Pass/fail status of evaluation
 	 */

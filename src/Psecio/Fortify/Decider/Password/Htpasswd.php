@@ -9,7 +9,7 @@ class Htpasswd extends \Psecio\Fortify\Decider\Password
 	/**
 	 * Test the "password" value on the Subject against the
 	 *   value in a .htpasswd file (exact matching on username)
-	 * 
+	 *
 	 * @param \Psecio\Fortify\Subject $subject Subject for evaluation
 	 * @return boolean Pass/fail status
 	 */
@@ -39,7 +39,7 @@ class Htpasswd extends \Psecio\Fortify\Decider\Password
 
 	/**
 	 * Validate the (Apache) md5 formatted value
-	 * 
+	 *
 	 * @param string $input Input to validate
 	 * @param string $compare Value coming from the .htpasswd file
 	 * @return boolean Pass/fail status
@@ -52,10 +52,10 @@ class Htpasswd extends \Psecio\Fortify\Decider\Password
 	}
 
 	/**
-	 * Generate the (Apache) md5 hash based on the given salt and input 
+	 * Generate the (Apache) md5 hash based on the given salt and input
 	 *   (input is the user input here)
 	 * Modifed from code found on ethelo.com (by Morten Haraldsen)
-	 * 
+	 *
 	 * @param string $salt Salt to use on the hash generation
 	 * @param string $input User inputted value for hash generation
 	 */
@@ -86,15 +86,30 @@ class Htpasswd extends \Psecio\Fortify\Decider\Password
 	    $hash = strtr(strrev(substr(base64_encode($hash), 2)),
 	    "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/",
 	    "./0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz");
-	 
+
 	    $computed_hash = "$"."apr1"."$".$salt."$".$hash;
         return $computed_hash;
 	}
 
+	/**
+	 * Validate the SHA1 formatted value
+	 *
+	 * @param string $input Input to validate
+	 * @param string $compare Value coming from the .htpasswd file
+	 * @return boolean Pass/fail status
+	 */
 	public function validateSha1($input, $compare)
 	{
 		throw new \Exception('Not implemented yet');
 	}
+
+	/**
+	 * Validate the crypt formatted value
+	 *
+	 * @param string $input Input to validate
+	 * @param string $compare Value coming from the .htpasswd file
+	 * @return boolean Pass/fail status
+	 */
 	public function validateCrypt($input, $compare)
 	{
 		throw new \Exception('Not implemented yet');
@@ -102,7 +117,7 @@ class Htpasswd extends \Psecio\Fortify\Decider\Password
 
 	/**
 	 * Determine the type of hash the .htpasswd file is using
-	 * 
+	 *
 	 * @param string $password Password value from .htpasswd file
 	 * @return string Hash type
 	 */

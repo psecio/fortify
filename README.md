@@ -1,7 +1,7 @@
 Fortify: Unified Authentication & Authorization Interface
 ===========================
 
-The aim of Fortify is to provide a single, simple interfact for handling authentication
+The aim of Fortify is to provide a single, simple interface for handling authentication
 and authorization needs.
 
 Installation

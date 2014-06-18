@@ -15,25 +15,17 @@ class Htpasswd extends \Psecio\Fortify\Decider\Password
 	 */
 	public function evaluate($subject)
 	{
-		$file = $this->getData('file');
+		$contents = $this->getData('file');
 		$username = $subject->getProperty('username');
 		$password = $subject->getProperty('password');
 
-		if ($file == null || !is_file($file)) {
-			throw new \InvalidArgumentException('File is not valid ('.$file.').');
-		}
-
-		$contents = file($file);
 		foreach ($contents as $line) {
 			list($htUsername, $htPassword) = explode(':', $line);
 			if ($username == $htUsername) {
-
-				$type = $this->determineType($htPassword);
-				$method = 'validate'.ucwords($type);
+				$method = 'validate'.ucwords($this->determineType($htPassword));
 				return $this->$method($password, $htPassword);
 			}
 		}
-
 		return false;
 	}
 

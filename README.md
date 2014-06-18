@@ -31,8 +31,7 @@ $subject = new \Psecio\Fortify\Subject(array(
 $decider = \Psecio\Fortify\Decider::create(
 	'password.htpasswd',
 	array(
-		'password' => 'foo',
-		'file' => file_get_contents('/var/www/test/fortify/.htpasswd')
+		'file' => file('/var/www/test/fortify/.htpasswd')
 	)
 );
 

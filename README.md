@@ -40,6 +40,18 @@ if ($authn->evaluate($subject) === true) {
 } else {
 	echo 'Not authorized, bummer...';
 }
+
+// Or you would use LDAP...
+$decider = \Psecio\Fortify\Decider::create(
+    'password.ldap',
+    array('server' => '16.236.203.21')
+);
+
+// ...or plain text
+$decider = \Psecio\Fortify\Decider::create(
+    'password.plaintext',
+    array('password' => 'compare-password-to-me')
+);
 ?>
 ```
 
